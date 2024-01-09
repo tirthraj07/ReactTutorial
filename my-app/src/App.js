@@ -1,21 +1,23 @@
 import './App.css';
 import Employee from './components/Employee';
+import {useState} from 'react'
+
 
 function App() {
-  console.log("This is the Employee Component");
-  let showEmployee = false;
+  
+  const [role,setRole] = useState("dev");
+
 
   return (
     <div className="App">
-      {showEmployee?(
-        <>
-          <Employee />
-        </>
-      ):(
-        <p>
-          You cannot see the Employee
-        </p>
-      )}
+    
+      <>
+        <input type="text" onChange={(e) => {
+          setRole(e.target.value);
+        }} placeholder="Enter Role"></input>
+        <Employee name="Tirthraj" role={role}/>
+      </>
+    
     </div>
   );
 }
